@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Fix Test</title>
+</head>
+<body>
+    <h1>Infinite Loop Fix Test</h1>
+    <p>Open browser console and visit: <code>http://localhost:5173</code></p>
+    <p>Look for the following patterns in console logs:</p>
+    
+    <h2>Fixed Issues:</h2>
+    <ul>
+        <li><strong>✅ Template console.log removed:</strong> No more "[RAGContext] Rendering panel" on every render</li>
+        <li><strong>✅ Reactive scrollToBottom removed:</strong> No more infinite scroll triggers</li>
+        <li><strong>✅ Init guard added:</strong> RAG initialization now has debouncing protection</li>
+        <li><strong>✅ Better event handling:</strong> Document events now have proper logging and debouncing</li>
+    </ul>
+
+    <h2>Test Steps:</h2>
+    <ol>
+        <li>Start the dev server: <code>cd webllm-app && npm run dev</code></li>
+        <li>Open http://localhost:5173 in browser</li>
+        <li>Open browser console (F12)</li>
+        <li>Enable RAG panel using the brain icon (bottom-right)</li>
+        <li>Monitor console for any repeating log patterns</li>
+        <li>Upload a document and check for clean, non-repeating logs</li>
+    </ol>
+
+    <h2>Expected Behavior:</h2>
+    <ul>
+        <li>Console logs should appear once per action, not repeatedly</li>
+        <li>No infinite "[RAGContext] Rendering panel" messages</li>
+        <li>Document operations should have clear start/end in logs</li>
+        <li>Page should remain responsive without excessive re-renders</li>
+    </ul>
+
+    <h2>Key Files Fixed:</h2>
+    <ul>
+        <li><code>src/lib/components/RAGContext.svelte</code> - Lines 211, 175-182, 195-206</li>
+        <li><code>src/lib/components/ChatInterface.svelte</code> - Lines 1223-1225</li>
+    </ul>
+</body>
+</html>
