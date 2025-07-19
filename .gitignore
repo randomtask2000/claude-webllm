@@ -18,7 +18,8 @@ Thumbs.db
 .env.production.local
 
 # Clipboard/Temporary Files
-.gemini-clipboard/
+.gemini-clipboard
+.gemini*
 temp/
 tmp/
 
